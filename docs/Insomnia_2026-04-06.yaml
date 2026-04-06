@@ -1,0 +1,272 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: S1_R3_R4 - AT2_PBE 2
+meta:
+  id: wrk_78ca6d617c3e45c7b898b12069f2be7b
+  created: 1775482604425
+  modified: 1775482604425
+  description: ""
+collection:
+  - name: PRODUTO
+    meta:
+      id: fld_6bb6ed59b24345d1bee45cbb615e8a1b
+      created: 1775482615964
+      modified: 1775482615964
+      sortKey: -1775482615964
+      description: ""
+    children:
+      - url: localhost:8080/produto
+        name: "CRIAR "
+        meta:
+          id: req_61256c09521b45de90435571dce75c82
+          created: 1775482656040
+          modified: 1775488779293
+          isPrivate: false
+          description: ""
+          sortKey: -1775482668622
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: idCategoria
+              value: "1"
+              description: ""
+              disabled: false
+            - name: nome
+              value: iphone 17 pro max
+              description: ""
+              disabled: false
+            - name: valor
+              value: "11.000"
+              description: ""
+              disabled: false
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\49213812833\Downloads\download.webp
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria?=1
+        name: EDITAR
+        meta:
+          id: req_e878ba3dddde4119ac95690015f7b1e5
+          created: 1775482718738
+          modified: 1775488387506
+          isPrivate: false
+          description: ""
+          sortKey: -1775482668747
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Eletrônicoss",
+              "descricao": "Produtos de tecnologia"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria/1
+        name: DELETAR
+        meta:
+          id: req_1b970363b0a94d47bc34be3b9d34ae6b
+          created: 1775482720859
+          modified: 1775488366592
+          isPrivate: false
+          description: ""
+          sortKey: -1775482668672
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/c
+        name: SELECIONAR
+        meta:
+          id: req_d8ac3a863acd4c99bb8b83e2460c0927
+          created: 1775488354449
+          modified: 1775488395716
+          isPrivate: false
+          description: ""
+          sortKey: -1775482668822
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: CATEGORIA
+    meta:
+      id: fld_f833f515b0dc4885b560b0eae9203517
+      created: 1775482625107
+      modified: 1775482625107
+      sortKey: -1775482625107
+      description: ""
+    children:
+      - url: localhost:8080/categoria
+        name: "CRIAR "
+        meta:
+          id: req_3e4674270ebf4d1ca46d84522a0ce032
+          created: 1775482630389
+          modified: 1775484320700
+          isPrivate: false
+          description: ""
+          sortKey: -1775482664164
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Eletrônicos",
+              "descricao": "Produtos de tecnologia"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria
+        name: SELECIONAR
+        meta:
+          id: req_d9b39f45f3b44875a0e2226c981cbaeb
+          created: 1775482723142
+          modified: 1775482879912
+          isPrivate: false
+          description: ""
+          sortKey: -1775482664464
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria/1
+        name: DELETAR
+        meta:
+          id: req_cdc82f7e5cab4708a63de0c95698f09e
+          created: 1775488349093
+          modified: 1775488349093
+          isPrivate: false
+          description: ""
+          sortKey: -1775482664314
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria?=1
+        name: EDITAR
+        meta:
+          id: req_863d59ec9cbc44eeb788d0952d324d90
+          created: 1775488385288
+          modified: 1775488385288
+          isPrivate: false
+          description: ""
+          sortKey: -1775482664189
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Eletrônicoss",
+              "descricao": "Produtos de tecnologia"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_5b0662f4f95aa2131f7d812500466a074cdd96ba
+    created: 1775482604444
+    modified: 1775482604444
+environments:
+  name: Base Environment
+  meta:
+    id: env_5b0662f4f95aa2131f7d812500466a074cdd96ba
+    created: 1775482604437
+    modified: 1775482604437
+    isPrivate: false
