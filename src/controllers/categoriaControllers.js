@@ -1,7 +1,8 @@
-import { Categoria } from '../models/categoria.js';
+import { categoria } from '../models/categoria.js';
 import categoriaRepo from '../repositories/categoriaRepository.js';
 
 const controllerCategoria = {
+
     cadastrar: async (req, res) => {
         try {
             const { nome, descricao } = req.body;
@@ -12,16 +13,7 @@ const controllerCategoria = {
                 });
             }
 
-            if (
-                descricao &&
-                (typeof descricao !== 'string' || descricao.trim() === '')
-            ) {
-                return res.status(400).json({
-                    mensagem: 'A descrição deve ser um texto válido.'
-                });
-            }
-
-            const novaCategoria = Categoria.criar({
+            const novaCategoria = categoria.criar({
                 nome: nome.trim(),
                 descricao: descricao ? descricao.trim() : null
             });
@@ -34,8 +26,6 @@ const controllerCategoria = {
             });
 
         } catch (erro) {
-            console.log(erro);
-
             return res.status(500).json({
                 mensagem: 'Erro interno no servidor.',
                 detalhe: erro.message
@@ -45,7 +35,7 @@ const controllerCategoria = {
 
     editar: async (req, res) => {
         try {
-            const codigo = Number(req.query.id);
+            const codigo = Number(req.params.id);
             const { nome, descricao } = req.body;
 
             if (!codigo || isNaN(codigo)) {
@@ -54,7 +44,7 @@ const controllerCategoria = {
                 });
             }
 
-            const categoriaAtualizada = Categoria.editar({
+            const categoriaAtualizada = categoria.editar({
                 nome: nome.trim(),
                 descricao: descricao ? descricao.trim() : null
             }, codigo);
@@ -67,10 +57,8 @@ const controllerCategoria = {
             });
 
         } catch (erro) {
-            console.log(erro);
-
             return res.status(500).json({
-                mensagem: 'Erro no servidor.',
+                mensagem: 'Erro interno no servidor.',
                 detalhe: erro.message
             });
         }
@@ -80,6 +68,12 @@ const controllerCategoria = {
         try {
             const codigo = Number(req.params.id);
 
+            if (!codigo || isNaN(codigo)) {
+                return res.status(400).json({
+                    mensagem: 'Informe um ID válido.'
+                });
+            }
+
             const resposta = await categoriaRepo.deletar(codigo);
 
             return res.status(200).json({
@@ -88,8 +82,6 @@ const controllerCategoria = {
             });
 
         } catch (erro) {
-            console.log(erro);
-
             return res.status(500).json({
                 mensagem: 'Erro interno no servidor.',
                 detalhe: erro.message
@@ -106,8 +98,6 @@ const controllerCategoria = {
             });
 
         } catch (erro) {
-            console.log(erro);
-
             return res.status(500).json({
                 mensagem: 'Erro interno no servidor.',
                 detalhe: erro.message

@@ -1,5 +1,5 @@
     import { Produto } from '../models/categoria.js';
-import produtoRepo from '../repositories/produtosRepository.js';
+import produtoRepo from '../repositories/produtoRepository.js';
 
 const controllerProduto = {
 

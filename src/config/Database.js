@@ -3,9 +3,9 @@ import 'dotenv/config';
 
 class Database {
     static #instance = null;
-    #pool = null;
+    #pool;
 
-    createPool(){
+    constructor() {
         this.#pool = mysql.createPool({
             host: process.env.DB_HOST,
             user: process.env.DB_USER,
@@ -13,15 +13,14 @@ class Database {
             database: process.env.DB_DATABASE,
             port: process.env.DB_PORT,
             waitForConnections: true,
-            connectionLimit: 100,
-            queueLimit: 0,
+            connectionLimit: 10,
+            queueLimit: 0
         });
     }
 
     static getInstance() {
         if (!Database.#instance) {
             Database.#instance = new Database();
-            Database.#instance.createPool();
         }
         return Database.#instance;
     }
@@ -31,4 +30,6 @@ class Database {
     }
 }
 
-export const db = Database.getInstance().getPool();
+const connection = Database.getInstance().getPool();
+
+export default connection;

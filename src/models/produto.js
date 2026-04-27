@@ -16,14 +16,24 @@ export class Produto {
     }
 
     
-    get id() { return this.#id; }
-    get idCategoria() { return this.#idCategoria; }
-    get nome() { return this.#nome; }
-    get valor() { return this.#valor; }
-    get caminhoImagem() { return this.#caminhoImagem; }
-    get dataCad() { return this.#dataCad; }
+    get id() {
+         return this.#id; }
 
-    // VALIDAÇÕES
+    get idCategoria() { 
+        return this.#idCategoria; }
+    get nome() { 
+        return this.#nome; }
+        
+    get valor() { 
+        return this.#valor; }
+
+    get caminhoImagem() { 
+        return this.#caminhoImagem; }
+
+    get dataCad() { 
+        return this.#dataCad; }
+
+    
     validarIdCategoria(value) {
         if (!value || isNaN(value)) {
             throw new Error("ID da categoria inválido");
@@ -48,7 +58,7 @@ export class Produto {
         }
     }
 
-    // FACTORY
+
     static criar(dados) {
         return new Produto(
             dados.idCategoria,

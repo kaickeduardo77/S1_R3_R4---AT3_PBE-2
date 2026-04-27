@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import categoriaController from '../controllers/categoriaController.js';
+import { Router } from "express";
+import controllerCategoria from "../controllers/categoriaControllers.js";
 
-const categoriaRoutes = Router();
+const router = Router();
 
-categoriaRoutes.post('/', categoriaController.criar);
-categoriaRoutes.put('/', categoriaController.atualizar);
-categoriaRoutes.delete('/:id', categoriaController.deletar);
-categoriaRoutes.get('/', categoriaController.selecionar);
+router.post("/", controllerCategoria.cadastrar);
+router.put("/:id", controllerCategoria.editar);
+router.delete("/:id", controllerCategoria.excluir);
+router.get("/", controllerCategoria.listar);
 
-export default categoriaRoutes;
+export default router;

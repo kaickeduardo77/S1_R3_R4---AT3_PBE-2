@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import produtoController from '../controllers/produtoController.js';
+import { Router } from "express";
+import produtoControllers from "../controllers/produtoControllers.js";
 
-const produtoRoutes = Router();
+const router = Router();
 
-produtoRoutes.post('/', produtoController.criar);
-produtoRoutes.put('/', produtoController.atualizar);
-produtoRoutes.delete('/:id', produtoController.deletar);
-produtoRoutes.get('/', produtoController.selecionar);
+router.post("/", produtoControllers.criar);
+router.put("/:id", produtoControllers.atualizar);
+router.delete("/:id", produtoControllers.deletar);
+router.get("/", produtoControllers.selecionar);
 
-export default produtoRoutes;
+export default router;

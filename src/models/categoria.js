@@ -17,7 +17,7 @@ export class categoria {
 
      set Descricao (value){
         this.#validarDescricao(value);
-        this.#descricao =value;
+        this.#descricao = value;
     }
 
     set Id (value){
